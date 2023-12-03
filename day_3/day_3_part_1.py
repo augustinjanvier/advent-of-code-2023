@@ -39,7 +39,6 @@ def get_full_numbers(line_partial, line_full):
     
     else:
         if line_partial[0].isdigit() and line_partial[2].isdigit():
-            print(line_full)
             n = line_full[2:5]
             numbers.append(int(n))
         elif line_partial[0].isdigit():
