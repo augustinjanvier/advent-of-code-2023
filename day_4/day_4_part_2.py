@@ -1,6 +1,6 @@
 # https://adventofcode.com/2023/day/4
 
-file_name = "input_small.txt"
+file_name = "input.txt"
 file = open(file_name, "r")
 
 def get_card_number(line):
@@ -34,6 +34,7 @@ def get_won_card_numbers(card):
 cards = []
 
 players_card_numbers = []
+final_result = []
 
 # Initialization
 for line in file:
@@ -42,6 +43,8 @@ for line in file:
     player_numbers = get_player_numbers(line)
     cards.append([card_number, winning_numbers, player_numbers])
     players_card_numbers.append(card_number)
+
+final_result = players_card_numbers
 
 won = True
 while(won):
@@ -53,6 +56,7 @@ while(won):
         if(won_card_numbers != []):
             won = True
             new_player_card_numbers += won_card_numbers
-            print(new_player_card_numbers)
     players_card_numbers = new_player_card_numbers
-    print("result:", players_card_numbers)
+    final_result.extend(players_card_numbers)
+
+print(len(final_result))
